@@ -9,18 +9,19 @@
         android:id="@+id/score_board"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:orientation="vertical"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:paddingTop="4dp">
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp">
 
         <LinearLayout
             android:id="@+id/row_teams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:paddingTop="4dp">
 
             <TextView
@@ -30,8 +31,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:text="Foxes"
-                android:textColor="#616161"
-                android:textSize="16sp" />
+                android:textColor="@color/quatchi_brown"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_vs"
@@ -52,9 +53,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:text="Wolves"
-                android:textColor="#616161"
-                android:textSize="16sp" />
-
+                android:textColor="@color/quatchi_brown"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,9 +62,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="4dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp">
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
 
             <TextView
                 android:id="@+id/scoreFoxes"
@@ -75,7 +75,7 @@
                 android:gravity="center_horizontal"
                 android:text="0"
                 android:textColor="#000000"
-                android:textSize="36sp" />
+                android:textSize="48sp" />
 
             <TextView
                 android:id="@+id/text_score"
@@ -98,14 +98,14 @@
                 android:gravity="center_horizontal"
                 android:text="0"
                 android:textColor="#000000"
-                android:textSize="36sp" />
+                android:textSize="48sp" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="4dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/corsiFoxes"
@@ -198,39 +198,41 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:background="@android:color/darker_gray" />
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@id/score_board">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fillViewport="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingBottom="8dp">
+                    android:paddingBottom="8dp"
+                    android:paddingTop="12dp">
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="fiveOnFiveGoal"
                         android:tag="foxes"
                         android:text="5:5 goal" />
@@ -238,9 +240,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="otherGoal"
                         android:tag="foxes"
                         android:text="other goal" />
@@ -248,9 +251,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="shotBlocked"
                         android:tag="foxes"
                         android:text="shot blocked" />
@@ -258,9 +262,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="shotOnPost"
                         android:tag="foxes"
                         android:text="shot on post" />
@@ -268,9 +273,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="otherShotAttempt"
                         android:tag="foxes"
                         android:text="other attempt" />
@@ -278,9 +284,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="takeaway"
                         android:tag="foxes"
                         android:text="takeaway" />
@@ -288,9 +295,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="completedPass"
                         android:tag="foxes"
                         android:text="completed pass" />
@@ -298,35 +306,37 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="finishedCheck"
                         android:tag="foxes"
                         android:text="finished check" />
-
                 </LinearLayout>
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="16dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="10dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingBottom="8dp">
+                    android:paddingBottom="8dp"
+                    android:paddingTop="12dp">
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="fiveOnFiveGoal"
                         android:tag="wolves"
                         android:text="5:5 goal" />
@@ -334,9 +344,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="otherGoal"
                         android:tag="wolves"
                         android:text="other goal" />
@@ -344,9 +355,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="shotBlocked"
                         android:tag="wolves"
                         android:text="shot blocked" />
@@ -354,9 +366,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="shotOnPost"
                         android:tag="wolves"
                         android:text="shot on post" />
@@ -364,9 +377,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="otherShotAttempt"
                         android:tag="wolves"
                         android:text="other attempt" />
@@ -374,9 +388,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="takeaway"
                         android:tag="wolves"
                         android:text="takeaway" />
@@ -384,9 +399,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="completedPass"
                         android:tag="wolves"
                         android:text="completed pass" />
@@ -394,9 +410,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="12dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:background="@drawable/button_background"
                         android:onClick="finishedCheck"
                         android:tag="wolves"
                         android:text="finished check" />
