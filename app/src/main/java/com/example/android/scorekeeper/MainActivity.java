@@ -15,12 +15,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * Initializes metrics for each team to 0 using teamMetrics.java class.
-     */
-    teamMetrics foxes = new teamMetrics();
-    teamMetrics wolves = new teamMetrics();
-
-    /**
      * Saves values as strings.
      */
     public static final String FOXES_SCORE = "SCORE_FOXES";
@@ -33,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String WOLVES_SEVENFACTOR = "SEVENFACTOR_WOLVES";
     public static final String FOXES_METRICS = "METRICS_FOXES";
     public static final String WOLVES_METRICS = "METRICS_WOLVES";
+    /**
+     * Initializes metrics for each team to 0 using teamMetrics.java class.
+     */
+    teamMetrics foxes = new teamMetrics();
+    teamMetrics wolves = new teamMetrics();
 
     /**
      * Calculates Corsi score from metrics.
@@ -78,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
      * - (turnovers + missed/blocked shot attempts)
      * <pre>
      * Metrics include shot attempts that are unblocked and that do not contact the goal.
+     * If no takeaways, passes or checks are logged, each of which are common actions during play,
+     * then the 7-Factor score is set to -99 to indicate the metric is omitted.
      * See <https://glassandout.com/2014/11/7-factor-analysis-simple-analytics-for-any-level-of-hockey/>.
      * </pre>
      *
@@ -85,12 +86,20 @@ public class MainActivity extends AppCompatActivity {
      * @param teamB
      */
     public void setSevenFactor(teamMetrics teamA, teamMetrics teamB) {
-        teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
-                + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
-                - (teamB.metrics[2] + teamB.metrics[5]);
-        teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
-                + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
-                - (teamA.metrics[2] + teamA.metrics[5]);
+        if (teamA.metrics[5] == 0 && teamB.metrics[5] == 0
+                && teamA.metrics[6] == 0 && teamB.metrics[6] == 0
+                && teamA.metrics[7] == 0 && teamB.metrics[7] == 0) {
+            teamA.sevenFactor = -99;
+            teamB.sevenFactor = -99;
+
+        } else {
+            teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
+                    + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
+                    - (teamB.metrics[2] + teamB.metrics[5]);
+            teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
+                    + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
+                    - (teamA.metrics[2] + teamA.metrics[5]);
+        }
     }
 
     /**
@@ -161,25 +170,20 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     /**
-     * Acts on menu item selection.
+     * Acts on menu item selection. Reset all metrics to zero with the 'reset' button.
      *
      * @param item
      * @return
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.reset) {
             foxes.score = 0;
             wolves.score = 0;
