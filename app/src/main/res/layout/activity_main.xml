@@ -231,7 +231,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="fiveOnFiveGoalFoxes"
+                        android:onClick="fiveOnFiveGoal"
+                        android:tag="foxes"
                         android:text="5:5 goal" />
 
                     <Button
@@ -240,7 +241,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherGoalFoxes"
+                        android:onClick="otherGoal"
+                        android:tag="foxes"
                         android:text="other goal" />
 
                     <Button
@@ -249,7 +251,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="shotBlockedFoxes"
+                        android:onClick="shotBlocked"
+                        android:tag="foxes"
                         android:text="shot blocked" />
 
                     <Button
@@ -258,7 +261,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="shotOnPostFoxes"
+                        android:onClick="shotOnPost"
+                        android:tag="foxes"
                         android:text="shot on post" />
 
                     <Button
@@ -267,7 +271,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherShotAttemptFoxes"
+                        android:onClick="otherShotAttempt"
+                        android:tag="foxes"
                         android:text="other shot attempt" />
 
                     <Button
@@ -276,7 +281,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="takeawayFoxes"
+                        android:onClick="takeaway"
+                        android:tag="foxes"
                         android:text="takeaway" />
 
                     <Button
@@ -285,7 +291,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="completedPassFoxes"
+                        android:onClick="completedPass"
+                        android:tag="foxes"
                         android:text="completed pass" />
 
                     <Button
@@ -294,7 +301,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="finishedCheckFoxes"
+                        android:onClick="finishedCheck"
+                        android:tag="foxes"
                         android:text="finished check" />
 
                 </LinearLayout>
@@ -319,7 +327,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="fiveOnFiveGoalWolves"
+                        android:onClick="fiveOnFiveGoal"
+                        android:tag="wolves"
                         android:text="5:5 goal" />
 
                     <Button
@@ -328,7 +337,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherGoalWolves"
+                        android:onClick="otherGoal"
+                        android:tag="wolves"
                         android:text="other goal" />
 
                     <Button
@@ -337,7 +347,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="shotBlockedWolves"
+                        android:onClick="shotBlocked"
+                        android:tag="wolves"
                         android:text="shot blocked" />
 
                     <Button
@@ -346,7 +357,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="shotOnPostWolves"
+                        android:onClick="shotOnPost"
+                        android:tag="wolves"
                         android:text="shot on post" />
 
                     <Button
@@ -355,7 +367,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherShotAttemptWolves"
+                        android:onClick="otherShotAttempt"
+                        android:tag="wolves"
                         android:text="other shot attempt" />
 
                     <Button
@@ -364,7 +377,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="takeawayWolves"
+                        android:onClick="takeaway"
+                        android:tag="wolves"
                         android:text="takeaway" />
 
                     <Button
@@ -373,7 +387,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="completedPassWolves"
+                        android:onClick="completedPass"
+                        android:tag="wolves"
                         android:text="completed pass" />
 
                     <Button
@@ -382,7 +397,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="finishedCheckWolves"
+                        android:onClick="finishedCheck"
+                        android:tag="wolves"
                         android:text="finished check" />
                 </LinearLayout>
             </LinearLayout>

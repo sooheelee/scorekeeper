@@ -10,62 +10,60 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * Initializes score and metrics for each team to 0.
+     * Initializes scores and metrics for each team to 0.
      */
-    int scoreFoxes = 0;
-    int scoreWolves = 0;
-    int corsiFoxes = 0;
-    int corsiWolves = 0;
-    int fenwickFoxes = 0;
-    int fenwickWolves = 0;
-    int sevenFactorFoxes = 0;
-    int sevenFactorWolves = 0;
-    int[] metricsFoxes = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-    int[] metricsWolves = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+    teamMetrics foxes = new teamMetrics();
+    teamMetrics wolves = new teamMetrics();
 
     /**
-     * Calculates Corsi score from metrics for Foxes
+     * Calculates Corsi score from metrics.
      *
-     * @param corsiFoxes
+     * @param teamA
+     * @param teamB
      */
-    public void setCorsiFoxes(int corsiFoxes) {
-        this.corsiFoxes = (metricsFoxes[0] + metricsFoxes[2] + metricsFoxes[3] + metricsFoxes[4])
-                - (metricsWolves[0] + metricsWolves[2] + metricsWolves[3] + metricsWolves[4]);
+    public void setCorsi(teamMetrics teamA, teamMetrics teamB) {
+        teamA.corsi = (teamA.metrics[0] + teamA.metrics[2] + teamA.metrics[3])
+                - (teamB.metrics[0] + teamB.metrics[2] + teamB.metrics[3]);
+        teamB.corsi = (teamB.metrics[0] + teamB.metrics[2] + teamB.metrics[3])
+                - (teamA.metrics[0] + teamA.metrics[2] + teamA.metrics[3]);
     }
 
     /**
-     * Calculates Fenwick score from metrics for Foxes
+     * Calculates Fenwick score from metrics.
      *
-     * @param fenwickFoxes
+     * @param teamA
+     * @param teamB
      */
-    public void setFenwickFoxes(int fenwickFoxes) {
-        this.fenwickFoxes = (metricsFoxes[0] + metricsFoxes[3] + metricsFoxes[4])
-                - (metricsWolves[0] + metricsWolves[3] + metricsWolves[4]);
+    public void setFenwick(teamMetrics teamA, teamMetrics teamB) {
+        teamA.fenwick = (teamA.metrics[0] + teamA.metrics[3])
+                - (teamB.metrics[0] + teamB.metrics[3]);
+        teamB.fenwick = (teamB.metrics[0] + teamB.metrics[3])
+                - (teamA.metrics[0] + teamA.metrics[3]);
     }
 
     /**
-     * Calculates 7-Factor score from metrics for Foxes
+     * Calculates 7-Factor score from metrics.
      *
-     * @param sevenFactorFoxes
+     * @param teamA
+     * @param teamB
      */
-    public void setSevenFactorFoxes(int sevenFactorFoxes) {
-        this.sevenFactorFoxes = (metricsFoxes[0] + metricsFoxes[1] + metricsFoxes[2] + metricsFoxes[3]
-                + metricsFoxes[4] + metricsFoxes[5] + metricsFoxes[6] + metricsFoxes[7])
-                - (metricsWolves[2] + metricsWolves[5]);
+    public void setSevenFactor(teamMetrics teamA, teamMetrics teamB) {
+        teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
+                + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
+                - (teamB.metrics[2] + teamB.metrics[5]);
+        teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
+                + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
+                - (teamA.metrics[2] + teamA.metrics[5]);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        displayScoreFoxes(scoreFoxes);
-        displayScoreWolves(scoreWolves);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
     @Override
@@ -84,211 +82,258 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.reset) {
-            scoreFoxes = 0;
-            scoreWolves = 0;
-            corsiFoxes = 0;
-            corsiWolves = 0;
-            fenwickFoxes = 0;
-            fenwickWolves = 0;
-            sevenFactorFoxes = 0;
-            sevenFactorWolves = 0;
-            metricsFoxes = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-            metricsWolves = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-            displayScoreFoxes(scoreFoxes);
-            displayScoreWolves(scoreWolves);
-            displayCorsiFoxes(corsiFoxes);
-            displayCorsiWolves(corsiWolves);
-            displayFenwickFoxes(fenwickFoxes);
-            displayFenwickWolves(fenwickWolves);
-            displaySevenFactorFoxes(sevenFactorFoxes);
-            displaySevenFactorWolves(sevenFactorWolves);
+            foxes.score = 0;
+            wolves.score = 0;
+            foxes.corsi = 0;
+            wolves.corsi = 0;
+            foxes.fenwick = 0;
+            wolves.fenwick = 0;
+            foxes.sevenFactor = 0;
+            wolves.sevenFactor = 0;
+            foxes.metrics = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+            wolves.metrics = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+            displayScore();
+            displayCorsi();
+            displayFenwick();
+            displaySevenFactor();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     /**
-     * Displays the total score for Team Foxes.
+     * Displays the total goals for Teams.
      */
-    public void displayScoreFoxes(int scoreFoxes) {
-        TextView scoreView = (TextView) findViewById(R.id.scoreFoxes);
-        scoreView.setText(String.valueOf(scoreFoxes));
+    public void displayScore() {
+        TextView scoreViewFoxes = (TextView) findViewById(R.id.scoreFoxes);
+        TextView scoreViewWolves = (TextView) findViewById(R.id.scoreWolves);
+        scoreViewFoxes.setText(String.valueOf(foxes.score));
+        scoreViewWolves.setText(String.valueOf(wolves.score));
     }
 
     /**
-     * Displays the total score for Team Wolves.
+     * Displays Corsi metrics.
      */
-    public void displayScoreWolves(int scoreWolves) {
-        TextView scoreView = (TextView) findViewById(R.id.scoreWolves);
-        scoreView.setText(String.valueOf(scoreWolves));
+    public void displayCorsi() {
+        TextView scoreViewFoxes = (TextView) findViewById(R.id.corsiFoxes);
+        TextView scoreViewWolves = (TextView) findViewById(R.id.corsiWolves);
+        scoreViewFoxes.setText(String.valueOf(foxes.corsi));
+        scoreViewWolves.setText(String.valueOf(wolves.corsi));
     }
 
     /**
-     * Displays Corsi metric for Foxes.
+     * Displays Fenwick metrics.
      */
-    public void displayCorsiFoxes(int corsiFoxes) {
-        TextView scoreView = (TextView) findViewById(R.id.corsiFoxes);
-        setCorsiFoxes(corsiFoxes);
-        scoreView.setText(String.valueOf(corsiFoxes));
+    public void displayFenwick() {
+        TextView scoreViewFoxes = (TextView) findViewById(R.id.fenwickFoxes);
+        TextView scoreViewWolves = (TextView) findViewById(R.id.fenwickWolves);
+        scoreViewFoxes.setText(String.valueOf(foxes.fenwick));
+        scoreViewWolves.setText(String.valueOf(wolves.fenwick));
     }
 
     /**
-     * Displays Corsi metric for Wolves.
+     * Displays 7-Factor metrics.
      */
-    public void displayCorsiWolves(int corsiWolves) {
-        TextView scoreView = (TextView) findViewById(R.id.corsiWolves);
-        scoreView.setText(String.valueOf(corsiWolves));
+    public void displaySevenFactor() {
+        TextView scoreViewFoxes = (TextView) findViewById(R.id.sevenFactorFoxes);
+        TextView scoreViewWolves = (TextView) findViewById(R.id.sevenFactorWolves);
+        scoreViewFoxes.setText(String.valueOf(foxes.sevenFactor));
+        scoreViewWolves.setText(String.valueOf(wolves.sevenFactor));
     }
 
     /**
-     * Displays Fenwick metric for Foxes.
-     */
-    public void displayFenwickFoxes(int fenwickFoxes) {
-        TextView scoreView = (TextView) findViewById(R.id.fenwickFoxes);
-        setFenwickFoxes(fenwickFoxes);
-        scoreView.setText(String.valueOf(fenwickFoxes));
-    }
-
-    /**
-     * Displays Fenwick metric for Wolves.
-     */
-    public void displayFenwickWolves(int fenwickWolves) {
-        TextView scoreView = (TextView) findViewById(R.id.fenwickWolves);
-        scoreView.setText(String.valueOf(fenwickWolves));
-    }
-
-    /**
-     * Displays 7-Factor metric for Foxes.
-     */
-    public void displaySevenFactorFoxes(int sevenFactorFoxes) {
-        TextView scoreView = (TextView) findViewById(R.id.sevenFactorFoxes);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        scoreView.setText(String.valueOf(sevenFactorFoxes));
-    }
-
-    /**
-     * Displays 7-Factor metric for Wolves.
-     */
-    public void displaySevenFactorWolves(int sevenFactorWolves) {
-        TextView scoreView = (TextView) findViewById(R.id.sevenFactorWolves);
-        scoreView.setText(String.valueOf(sevenFactorWolves));
-    }
-
-    /**
-     * Increase the score for Team Foxes by 1 point.
+     * Increase the score for a team by 1 point.
      * Track 5-on-5 play goals.
      */
-    public void fiveOnFiveGoalFoxes(View v) {
-        scoreFoxes = scoreFoxes + 1;
-        metricsFoxes[0] = metricsFoxes[0] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayScoreFoxes(scoreFoxes);
-        displayScoreWolves(scoreWolves);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void fiveOnFiveGoal(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.score++;
+        //foxes.score = scoreFoxes + 1;
+        offensiveTeam.metrics[0]++;
+        //metricsFoxes[0] = metricsFoxes[0] + 1;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
     /**
-     * Increase the score for Team Foxes by 1 point.
+     * Increase the score for a team by 1 point.
      * Track power-play and short-handed goals.
      */
-    public void otherGoalFoxes(View v) {
-        scoreFoxes = scoreFoxes + 1;
-        metricsFoxes[1] = metricsFoxes[1] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayScoreFoxes(scoreFoxes);
-        displayScoreWolves(scoreWolves);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void otherGoal(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.score++;
+        offensiveTeam.metrics[1]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
-    public void shotBlockedFoxes(View v) {
-        metricsFoxes[2] = metricsFoxes[2] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void shotBlocked(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.metrics[2]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
-    public void shotOnPostFoxes(View v) {
-        metricsFoxes[3] = metricsFoxes[3] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void shotOnPost(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.metrics[3]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
-    public void otherShotAttemptFoxes(View v) {
-        metricsFoxes[4] = metricsFoxes[4] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void otherShotAttempt(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.metrics[4]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
-    public void takeawayFoxes(View v) {
-        metricsFoxes[5] = metricsFoxes[5] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void takeaway(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.metrics[5]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
-    public void completedPassFoxes(View v) {
-        metricsFoxes[6] = metricsFoxes[6] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void completedPass(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.metrics[6]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 
-    public void finishedCheckFoxes(View v) {
-        metricsFoxes[7] = metricsFoxes[7] + 1;
-        setCorsiFoxes(corsiFoxes);
-        setFenwickFoxes(fenwickWolves);
-        setSevenFactorFoxes(sevenFactorFoxes);
-        displayCorsiFoxes(corsiFoxes);
-        displayCorsiWolves(corsiWolves);
-        displayFenwickFoxes(fenwickFoxes);
-        displayFenwickWolves(fenwickWolves);
-        displaySevenFactorFoxes(sevenFactorFoxes);
-        displaySevenFactorWolves(sevenFactorWolves);
+    public void finishedCheck(View v) {
+        String team = v.getTag().toString();
+        teamMetrics offensiveTeam;
+        teamMetrics defensiveTeam;
+
+        if (team.equals("foxes")) {
+            offensiveTeam = foxes;
+            defensiveTeam = wolves;
+        } else {
+            offensiveTeam = wolves;
+            defensiveTeam = foxes;
+        }
+
+        offensiveTeam.metrics[7]++;
+        setCorsi(offensiveTeam, defensiveTeam);
+        setFenwick(offensiveTeam, defensiveTeam);
+        setSevenFactor(offensiveTeam, defensiveTeam);
+        displayScore();
+        displayCorsi();
+        displayFenwick();
+        displaySevenFactor();
     }
 }
