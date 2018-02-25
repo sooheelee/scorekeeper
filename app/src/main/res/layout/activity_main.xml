@@ -10,18 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="4dp"
+        android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:paddingLeft="4dp">
+        android:paddingTop="4dp">
 
         <LinearLayout
             android:id="@+id/row_teams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="4dp"
             android:paddingLeft="4dp"
-            android:paddingRight="4dp">
+            android:paddingRight="4dp"
+            android:paddingTop="4dp">
 
             <TextView
                 android:layout_width="0dp"
@@ -62,12 +62,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingBottom="4dp"
             android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:paddingBottom="4dp">
+            android:paddingRight="4dp">
 
             <TextView
-                android:id="@+id/team_a_score"
+                android:id="@+id/scoreFoxes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -90,7 +90,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/team_b_score"
+                android:id="@+id/scoreWolves"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -116,7 +116,7 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/team_a_corsi"
+                android:id="@+id/corsiFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -127,7 +127,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/team_a_fenwick"
+                android:id="@+id/fenwickFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -138,7 +138,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/team_a_7factor"
+                android:id="@+id/sevenFactorFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -149,7 +149,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_corsi"
+                android:id="@+id/text_metrics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -162,7 +162,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/team_b_corsi"
+                android:id="@+id/corsiWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -173,7 +173,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/team_b_fenwick"
+                android:id="@+id/fenwickWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -184,7 +184,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/team_b_7factor"
+                android:id="@+id/sevenFactorWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -231,7 +231,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="fiveOnFiveGoalTeamA"
+                        android:onClick="fiveOnFiveGoal"
+                        android:tag="foxes"
                         android:text="5:5 goal" />
 
                     <Button
@@ -240,7 +241,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherGoalTeamA"
+                        android:onClick="otherGoal"
+                        android:tag="foxes"
                         android:text="other goal" />
 
                     <Button
@@ -249,8 +251,9 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="blockedShotTeamA"
-                        android:text="blocked shot" />
+                        android:onClick="shotBlocked"
+                        android:tag="foxes"
+                        android:text="shot blocked" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -258,8 +261,9 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="postHitTeamA"
-                        android:text="post hit" />
+                        android:onClick="shotOnPost"
+                        android:tag="foxes"
+                        android:text="shot on post" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -267,7 +271,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherShotAttemptTeamA"
+                        android:onClick="otherShotAttempt"
+                        android:tag="foxes"
                         android:text="other shot attempt" />
 
                     <Button
@@ -276,7 +281,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="takeawayTeamA"
+                        android:onClick="takeaway"
+                        android:tag="foxes"
                         android:text="takeaway" />
 
                     <Button
@@ -285,7 +291,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="completedPassTeamA"
+                        android:onClick="completedPass"
+                        android:tag="foxes"
                         android:text="completed pass" />
 
                     <Button
@@ -294,7 +301,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="finishedCheckTeamA"
+                        android:onClick="finishedCheck"
+                        android:tag="foxes"
                         android:text="finished check" />
 
                 </LinearLayout>
@@ -319,7 +327,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="fiveOnFiveGoalTeamB"
+                        android:onClick="fiveOnFiveGoal"
+                        android:tag="wolves"
                         android:text="5:5 goal" />
 
                     <Button
@@ -328,7 +337,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherGoalTeamB"
+                        android:onClick="otherGoal"
+                        android:tag="wolves"
                         android:text="other goal" />
 
                     <Button
@@ -337,8 +347,9 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="blockedShotTeamB"
-                        android:text="blocked shot" />
+                        android:onClick="shotBlocked"
+                        android:tag="wolves"
+                        android:text="shot blocked" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -346,8 +357,9 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="postHitTeamB"
-                        android:text="post hit" />
+                        android:onClick="shotOnPost"
+                        android:tag="wolves"
+                        android:text="shot on post" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -355,7 +367,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="otherShotAttemptTeamB"
+                        android:onClick="otherShotAttempt"
+                        android:tag="wolves"
                         android:text="other shot attempt" />
 
                     <Button
@@ -364,7 +377,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="takeawayTeamB"
+                        android:onClick="takeaway"
+                        android:tag="wolves"
                         android:text="takeaway" />
 
                     <Button
@@ -373,7 +387,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="completedPassTeamB"
+                        android:onClick="completedPass"
+                        android:tag="wolves"
                         android:text="completed pass" />
 
                     <Button
@@ -382,7 +397,8 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:onClick="finishedCheckTeamB"
+                        android:onClick="finishedCheck"
+                        android:tag="wolves"
                         android:text="finished check" />
                 </LinearLayout>
             </LinearLayout>
