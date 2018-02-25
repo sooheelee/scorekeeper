@@ -7,16 +7,41 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * App keeps track of the total score in a hockey match.
+ * For each team also calculates Corsi, Fenwick and 7-Factor metrics.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * Initializes scores and metrics for each team to 0.
+     * Initializes metrics for each team to 0 using teamMetrics.java class.
      */
     teamMetrics foxes = new teamMetrics();
     teamMetrics wolves = new teamMetrics();
 
     /**
+     * Saves values as strings.
+     */
+    public static final String FOXES_SCORE = "SCORE_FOXES";
+    public static final String WOLVES_SCORE = "SCORE_WOLVES";
+    public static final String FOXES_CORSI = "CORSI_FOXES";
+    public static final String WOLVES_CORSI = "CORSI_WOLVES";
+    public static final String FOXES_FENWICK = "FENWICK_FOXES";
+    public static final String WOLVES_FENWICK = "FENWICK_WOLVES";
+    public static final String FOXES_SEVENFACTOR = "SEVENFACTOR_FOXES";
+    public static final String WOLVES_SEVENFACTOR = "SEVENFACTOR_WOLVES";
+    public static final String FOXES_METRICS = "METRICS_FOXES";
+    public static final String WOLVES_METRICS = "METRICS_WOLVES";
+
+    /**
      * Calculates Corsi score from metrics.
+     * Corsi = (5:5 shots on target + missed shots + blocked shots against) -
+     * (5:5 shots on target against + missed shots against + blocked shots for)
+     * <pre>
+     * Metric excludes shot attempts that are unblocked and that do not contact the goal.
+     * See <https://captaincalculator.com/sports/hockey/corsi-calculator/>.
+     * </pre>
      *
      * @param teamA
      * @param teamB
@@ -30,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Calculates Fenwick score from metrics.
+     * Fenwick = (5:5 shots on target + missed shots) - (5:5 shots on target against +
+     * missed shots against)
+     * <pre>
+     * Metric excludes shot attempts that are unblocked and that do not contact the goal.
+     * See <https://captaincalculator.com/sports/hockey/fenwick-calculator/>.
+     * </pre>
      *
      * @param teamA
      * @param teamB
@@ -42,7 +73,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Calculates 7-Factor score from metrics.
+     * Calculates 7-Factor Analysis score from metrics.
+     * 7-Factor Analysis = (shots on net + blocked shots + finished checks + takeaways + completed passes)
+     * - (turnovers + missed/blocked shot attempts)
+     * <pre>
+     * Metrics include shot attempts that are unblocked and that do not contact the goal.
+     * See <https://glassandout.com/2014/11/7-factor-analysis-simple-analytics-for-any-level-of-hockey/>.
+     * </pre>
      *
      * @param teamA
      * @param teamB
@@ -56,6 +93,56 @@ public class MainActivity extends AppCompatActivity {
                 - (teamA.metrics[2] + teamA.metrics[5]);
     }
 
+    /**
+     * Displays saved values after orientation changes and other context changes.
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            foxes.score = savedInstanceState.getInt(FOXES_SCORE);
+            wolves.score = savedInstanceState.getInt(WOLVES_SCORE);
+            foxes.corsi = savedInstanceState.getInt(FOXES_CORSI);
+            wolves.corsi = savedInstanceState.getInt(WOLVES_CORSI);
+            foxes.fenwick = savedInstanceState.getInt(FOXES_FENWICK);
+            wolves.fenwick = savedInstanceState.getInt(WOLVES_FENWICK);
+            foxes.sevenFactor = savedInstanceState.getInt(FOXES_SEVENFACTOR);
+            wolves.sevenFactor = savedInstanceState.getInt(WOLVES_SEVENFACTOR);
+            foxes.metrics = savedInstanceState.getIntArray(FOXES_METRICS);
+            wolves.metrics = savedInstanceState.getIntArray(WOLVES_METRICS);
+            displayScore();
+            displayCorsi();
+            displayFenwick();
+            displaySevenFactor();
+        }
+    }
+
+    /**
+     * Saves values.
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(FOXES_SCORE, foxes.score);
+        savedInstanceState.putInt(WOLVES_SCORE, wolves.score);
+        savedInstanceState.putInt(FOXES_CORSI, foxes.corsi);
+        savedInstanceState.putInt(WOLVES_CORSI, wolves.corsi);
+        savedInstanceState.putInt(FOXES_FENWICK, foxes.fenwick);
+        savedInstanceState.putInt(WOLVES_FENWICK, wolves.fenwick);
+        savedInstanceState.putInt(FOXES_SEVENFACTOR, foxes.sevenFactor);
+        savedInstanceState.putInt(WOLVES_SEVENFACTOR, wolves.sevenFactor);
+        savedInstanceState.putIntArray(FOXES_METRICS, foxes.metrics);
+        savedInstanceState.putIntArray(WOLVES_METRICS, wolves.metrics);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    /**
+     * Creates a new instance.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +153,12 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Creates menu.
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -73,6 +166,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Acts on menu item selection.
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -98,11 +197,15 @@ public class MainActivity extends AppCompatActivity {
             displaySevenFactor();
         }
 
+        //yet to be wired function
+        if (id == R.id.save) {
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
     /**
-     * Displays the total goals for Teams.
+     * Displays the total goals for each team.
      */
     public void displayScore() {
         TextView scoreViewFoxes = (TextView) findViewById(R.id.scoreFoxes);
@@ -112,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays Corsi metrics.
+     * Displays Corsi metrics for each team.
      */
     public void displayCorsi() {
         TextView scoreViewFoxes = (TextView) findViewById(R.id.corsiFoxes);
@@ -122,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays Fenwick metrics.
+     * Displays Fenwick metrics for each team.
      */
     public void displayFenwick() {
         TextView scoreViewFoxes = (TextView) findViewById(R.id.fenwickFoxes);
@@ -132,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays 7-Factor metrics.
+     * Displays 7-Factor metrics for each team.
      */
     public void displaySevenFactor() {
         TextView scoreViewFoxes = (TextView) findViewById(R.id.sevenFactorFoxes);
@@ -143,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Increase the score for a team by 1 point.
-     * Track 5-on-5 play goals.
+     * Track 5-on-5 play goals and update metrics accordingly.
      */
     public void fiveOnFiveGoal(View v) {
         String team = v.getTag().toString();
@@ -173,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Increase the score for a team by 1 point.
-     * Track power-play and short-handed goals.
+     * Track power-play and short-handed goals and update metrics accordingly.
      */
     public void otherGoal(View v) {
         String team = v.getTag().toString();
@@ -199,6 +302,9 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Track shot attempts that the opposing team blocks and update metrics accordingly.
+     */
     public void shotBlocked(View v) {
         String team = v.getTag().toString();
         teamMetrics offensiveTeam;
@@ -222,6 +328,9 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Track shot attempts that hit the goal post but do not score and update metrics accordingly.
+     */
     public void shotOnPost(View v) {
         String team = v.getTag().toString();
         teamMetrics offensiveTeam;
@@ -245,6 +354,10 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Track remaining shot attempts that are neither blocked nor come in contact with goal.
+     * Update metrics accordingly.
+     */
     public void otherShotAttempt(View v) {
         String team = v.getTag().toString();
         teamMetrics offensiveTeam;
@@ -268,6 +381,10 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Track takeaways by team and turnovers for the opposing team.
+     * Update metrics accordingly.
+     */
     public void takeaway(View v) {
         String team = v.getTag().toString();
         teamMetrics offensiveTeam;
@@ -291,6 +408,9 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Track completed passes and update metrics accordingly.
+     */
     public void completedPass(View v) {
         String team = v.getTag().toString();
         teamMetrics offensiveTeam;
@@ -314,6 +434,9 @@ public class MainActivity extends AppCompatActivity {
         displaySevenFactor();
     }
 
+    /**
+     * Track finished checks and update metrics accordingly.
+     */
     public void finishedCheck(View v) {
         String team = v.getTag().toString();
         teamMetrics offensiveTeam;

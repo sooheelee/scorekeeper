@@ -156,7 +156,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="Corsi/Fenwick/7-Factor"
+                android:text="Corsi/Fenwick/7Factor"
                 android:textAlignment="center"
                 android:textColor="#616161"
                 android:textSize="12sp" />
@@ -273,7 +273,7 @@
                         android:layout_marginRight="16dp"
                         android:onClick="otherShotAttempt"
                         android:tag="foxes"
-                        android:text="other shot attempt" />
+                        android:text="other attempt" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -311,7 +311,7 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="16dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="6dp"
                     android:background="@android:color/darker_gray" />
 
                 <LinearLayout
@@ -369,7 +369,7 @@
                         android:layout_marginRight="16dp"
                         android:onClick="otherShotAttempt"
                         android:tag="wolves"
-                        android:text="other shot attempt" />
+                        android:text="other attempt" />
 
                     <Button
                         android:layout_width="match_parent"
