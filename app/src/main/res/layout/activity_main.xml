@@ -233,11 +233,11 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:background="@drawable/button_background"
-                        android:onClick="fiveOnFiveGoal"
                         android:fontFamily="sans-serif-medium"
+                        android:onClick="fiveOnFiveGoal"
                         android:tag="foxes"
                         android:text="5:5 goal"
-                        android:textColor="@color/quatchi_brown_dark"/>
+                        android:textColor="@color/quatchi_brown_dark" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -250,7 +250,7 @@
                         android:onClick="otherGoal"
                         android:tag="foxes"
                         android:text="other goal"
-                        android:textColor="@color/quatchi_brown_dark"/>
+                        android:textColor="@color/quatchi_brown_dark" />
 
                     <Button
                         android:layout_width="match_parent"

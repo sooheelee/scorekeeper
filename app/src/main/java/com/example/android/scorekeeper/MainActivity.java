@@ -86,13 +86,13 @@ public class MainActivity extends AppCompatActivity {
      * @param teamB
      */
     public void setSevenFactor(teamMetrics teamA, teamMetrics teamB) {
-            teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
-                    + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
-                    - (teamB.metrics[2] + teamB.metrics[5]);
-            teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
-                    + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
-                    - (teamA.metrics[2] + teamA.metrics[5]);
-        }
+        teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
+                + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
+                - (teamB.metrics[2] + teamB.metrics[5]);
+        teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
+                + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
+                - (teamA.metrics[2] + teamA.metrics[5]);
+    }
 
     /**
      * Displays saved values after orientation changes and other context changes.
