@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="button_pressed">#808e95</color>
-    <color name="button_default">#b0bec5</color>
-    <color name="quatchi_brown">#490e00</color>
+    <color name="button_pressed">#008ba3</color>
+    <color name="button_default">#B2EBF2</color>
+    <color name="cyan_lightest">#e0f7fa</color>
+    <color name="cyan_light">#62efff</color>
+    <color name="quatchi_brown_dark">#490e00</color>
+    <color name="quatchi_brown">#773800</color>
+    <color name="quatchi_brown_light">#ab632d</color>
 </resources>

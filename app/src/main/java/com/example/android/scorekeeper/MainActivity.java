@@ -86,20 +86,12 @@ public class MainActivity extends AppCompatActivity {
      * @param teamB
      */
     public void setSevenFactor(teamMetrics teamA, teamMetrics teamB) {
-        if (teamA.metrics[5] == 0 && teamB.metrics[5] == 0
-                && teamA.metrics[6] == 0 && teamB.metrics[6] == 0
-                && teamA.metrics[7] == 0 && teamB.metrics[7] == 0) {
-            teamA.sevenFactor = -99;
-            teamB.sevenFactor = -99;
-
-        } else {
-            teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
-                    + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
-                    - (teamB.metrics[2] + teamB.metrics[5]);
-            teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
-                    + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
-                    - (teamA.metrics[2] + teamA.metrics[5]);
-        }
+        teamA.sevenFactor = (teamA.metrics[0] + teamA.metrics[1] + teamA.metrics[2] + teamA.metrics[3]
+                + teamA.metrics[4] + teamA.metrics[5] + teamA.metrics[6] + teamA.metrics[7])
+                - (teamB.metrics[2] + teamB.metrics[5]);
+        teamB.sevenFactor = (teamB.metrics[0] + teamB.metrics[1] + teamB.metrics[2] + teamB.metrics[3]
+                + teamB.metrics[4] + teamB.metrics[5] + teamB.metrics[6] + teamB.metrics[7])
+                - (teamA.metrics[2] + teamA.metrics[5]);
     }
 
     /**
@@ -244,8 +236,16 @@ public class MainActivity extends AppCompatActivity {
     public void displaySevenFactor() {
         TextView scoreViewFoxes = (TextView) findViewById(R.id.sevenFactorFoxes);
         TextView scoreViewWolves = (TextView) findViewById(R.id.sevenFactorWolves);
-        scoreViewFoxes.setText(String.valueOf(foxes.sevenFactor));
-        scoreViewWolves.setText(String.valueOf(wolves.sevenFactor));
+        if (foxes.metrics[4] == 0 && wolves.metrics[4] == 0
+                && foxes.metrics[5] == 0 && wolves.metrics[5] == 0
+                && foxes.metrics[6] == 0 && wolves.metrics[6] == 0
+                && foxes.metrics[7] == 0 && wolves.metrics[7] == 0) {
+            scoreViewFoxes.setText(String.valueOf("na"));
+            scoreViewWolves.setText(String.valueOf("na"));
+        } else {
+            scoreViewFoxes.setText(String.valueOf(foxes.sevenFactor));
+            scoreViewWolves.setText(String.valueOf(wolves.sevenFactor));
+        }
     }
 
     /**
