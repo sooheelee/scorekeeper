@@ -11,50 +11,47 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="8dp">
+        android:layout_marginLeft="@dimen/layoutMargin"
+        android:layout_marginRight="@dimen/layoutMargin"
+        android:layout_marginTop="@dimen/layoutMargin">
 
         <LinearLayout
             android:id="@+id/row_teams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="8dp">
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginRight="@dimen/layoutMargin"
+            android:layout_marginTop="@dimen/layoutMargin">
 
             <TextView
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="@integer/scoreBoardColumn"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
-                android:text="Foxes"
+                android:text="@string/teamA"
                 android:textColor="@color/quatchi_brown"
-                android:textSize="24sp" />
+                android:textSize="@dimen/largeText" />
 
             <TextView
                 android:id="@+id/text_vs"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="vs"
                 android:textColor="@color/quatchi_brown_light"
-                android:textSize="12sp" />
+                android:textSize="@dimen/smallText" />
 
             <TextView
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="@integer/scoreBoardColumn"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
-                android:text="Wolves"
+                android:text="@string/teamB"
                 android:textColor="@color/quatchi_brown"
-                android:textSize="24sp" />
+                android:textSize="@dimen/largeText" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,50 +59,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp">
+            android:layout_marginBottom="@dimen/layoutMargin"
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginRight="@dimen/layoutMargin">
 
             <TextView
                 android:id="@+id/scoreFoxes"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="@integer/scoreBoardColumn"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="56sp" />
+                android:textSize="@dimen/giganticText" />
 
             <TextView
                 android:id="@+id/text_score"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="score"
                 android:textColor="@color/quatchi_brown_light"
-                android:textSize="12sp" />
+                android:textSize="@dimen/smallText" />
 
             <TextView
                 android:id="@+id/scoreWolves"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="@integer/scoreBoardColumn"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="56sp" />
+                android:textSize="@dimen/giganticText" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_height="@dimen/lineWidth"
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginRight="@dimen/layoutMargin"
             android:background="@color/button_default" />
 
         <LinearLayout
@@ -113,93 +107,93 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:layout_margin="@dimen/layoutMargin">
 
             <TextView
                 android:id="@+id/corsiFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="16sp" />
+                android:textSize="@dimen/mediumText" />
 
             <TextView
                 android:id="@+id/fenwickFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="16sp" />
+                android:textSize="@dimen/mediumText" />
 
             <TextView
                 android:id="@+id/sevenFactorFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="na"
+                android:text="@string/na"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="16sp" />
+                android:textSize="@dimen/mediumText" />
 
             <TextView
                 android:id="@+id/text_metrics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="Corsi/Fenwick/7Factor"
                 android:textAlignment="center"
                 android:textColor="@color/quatchi_brown_light"
-                android:textSize="12sp" />
+                android:textSize="@dimen/smallText" />
 
             <TextView
                 android:id="@+id/corsiWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="16sp" />
+                android:textSize="@dimen/mediumText" />
 
             <TextView
                 android:id="@+id/fenwickWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="16sp" />
+                android:textSize="@dimen/mediumText" />
 
             <TextView
                 android:id="@+id/sevenFactorWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="@integer/scoreBoardLabel"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
-                android:text="na"
+                android:text="@string/na"
                 android:textColor="@color/quatchi_brown_dark"
-                android:textSize="16sp" />
+                android:textSize="@dimen/mediumText" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_height="@dimen/lineWidth"
+            android:layout_marginLeft="@dimen/layoutMargin"
+            android:layout_marginRight="@dimen/layoutMargin"
             android:background="@color/button_default" />
     </LinearLayout>
 
@@ -219,223 +213,222 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="@integer/buttonColumn"
                     android:orientation="vertical"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="16dp">
+                    android:layout_marginBottom="@dimen/layoutMargin"
+                    android:layout_marginTop="@dimen/buttonMargin">
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:fontFamily="sans-serif-medium"
                         android:onClick="fiveOnFiveGoal"
                         android:tag="foxes"
-                        android:text="5:5 goal"
+                        android:text="@string/button1"
                         android:textColor="@color/quatchi_brown_dark" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:fontFamily="sans-serif-medium"
                         android:onClick="otherGoal"
                         android:tag="foxes"
-                        android:text="other goal"
+                        android:text="@string/button2"
                         android:textColor="@color/quatchi_brown_dark" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="shotBlocked"
                         android:tag="foxes"
-                        android:text="shot blocked"
+                        android:text="@string/button3"
                         android:textColor="@color/quatchi_brown" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="shotOnPost"
                         android:tag="foxes"
-                        android:text="shot on post"
+                        android:text="@string/button4"
                         android:textColor="@color/quatchi_brown" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="otherShotAttempt"
                         android:tag="foxes"
-                        android:text="other attempt"
+                        android:text="@string/button5"
                         android:textColor="@color/quatchi_brown_light" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="takeaway"
                         android:tag="foxes"
-                        android:text="takeaway"
+                        android:text="@string/button6"
                         android:textColor="@color/quatchi_brown_light" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="completedPass"
                         android:tag="foxes"
-                        android:text="completed pass"
+                        android:text="@string/button7"
                         android:textColor="@color/quatchi_brown_light" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="finishedCheck"
                         android:tag="foxes"
-                        android:text="finished check"
+                        android:text="@string/button8"
                         android:textColor="@color/quatchi_brown_light" />
                 </LinearLayout>
 
                 <View
-                    android:layout_width="1dp"
+                    android:layout_width="@dimen/lineWidth"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="@dimen/buttonMargin"
                     android:layout_marginTop="10dp"
                     android:background="@color/button_default" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="@integer/buttonColumn"
                     android:orientation="vertical"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="16dp">
+                    android:layout_marginBottom="@dimen/layoutMargin"
+                    android:layout_marginTop="@dimen/buttonMargin">
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="fiveOnFiveGoal"
                         android:tag="wolves"
-                        android:text="5:5 goal"
+                        android:text="@string/button1"
                         android:textColor="@color/quatchi_brown_dark" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="otherGoal"
                         android:tag="wolves"
-                        android:text="other goal"
+                        android:text="@string/button2"
                         android:textColor="@color/quatchi_brown_dark" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="shotBlocked"
                         android:tag="wolves"
-                        android:text="shot blocked"
+                        android:text="@string/button3"
                         android:textColor="@color/quatchi_brown" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="shotOnPost"
                         android:tag="wolves"
-                        android:text="shot on post"
+                        android:text="@string/button4"
                         android:textColor="@color/quatchi_brown" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="otherShotAttempt"
                         android:tag="wolves"
-                        android:text="other attempt"
+                        android:text="@string/button5"
                         android:textColor="@color/quatchi_brown_light" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="takeaway"
                         android:tag="wolves"
-                        android:text="takeaway"
+                        android:text="@string/button6"
                         android:textColor="@color/quatchi_brown_light" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="completedPass"
                         android:tag="wolves"
-                        android:text="completed pass"
+                        android:text="@string/button7"
                         android:textColor="@color/quatchi_brown_light" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="@dimen/buttonMargin"
+                        android:layout_marginLeft="@dimen/buttonMargin"
+                        android:layout_marginRight="@dimen/buttonMargin"
                         android:background="@drawable/button_background"
                         android:onClick="finishedCheck"
                         android:tag="wolves"
-                        android:text="finished check"
+                        android:text="@string/button8"
                         android:textColor="@color/quatchi_brown_light" />
-                </LinearLayout>
+                </LinearLayout
+                    android:layout_width="0dp">
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>
