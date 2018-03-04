@@ -7,4 +7,5 @@
     <dimen name="buttonMargin">16dp</dimen>
     <dimen name="layoutMargin">8dp</dimen>
     <dimen name="lineWidth">1dp</dimen>
+    <dimen name="zeroDp">0dp</dimen>
 </resources>
