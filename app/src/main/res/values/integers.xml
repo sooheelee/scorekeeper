@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="scoreBoardColumn">4</integer>
-    <integer name="scoreBoardLabel">1</integer>
-    <integer name="buttonColumn">1</integer>
+    <integer name="scoreBoardColumnWeight">4</integer>
+    <integer name="scoreBoardLabelWeight">1</integer>
+    <integer name="buttonColumnWeight">1</integer>
 </resources>

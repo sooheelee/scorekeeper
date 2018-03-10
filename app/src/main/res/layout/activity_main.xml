@@ -9,25 +9,25 @@
         android:id="@+id/score_board"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:orientation="vertical"
         android:layout_marginLeft="@dimen/layoutMargin"
         android:layout_marginRight="@dimen/layoutMargin"
-        android:layout_marginTop="@dimen/layoutMargin">
+        android:layout_marginTop="@dimen/layoutMargin"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/row_teams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginLeft="@dimen/layoutMargin"
             android:layout_marginRight="@dimen/layoutMargin"
-            android:layout_marginTop="@dimen/layoutMargin">
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="@dimen/zeroDp"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardColumn"
+                android:layout_weight="@integer/scoreBoardColumnWeight"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:text="@string/teamA"
@@ -39,7 +39,7 @@
                 android:layout_width="@dimen/zeroDp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="vs"
@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="@dimen/zeroDp"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardColumn"
+                android:layout_weight="@integer/scoreBoardColumnWeight"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:text="@string/teamB"
@@ -61,16 +61,16 @@
             android:id="@+id/row_score"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/layoutMargin"
             android:layout_marginLeft="@dimen/layoutMargin"
-            android:layout_marginRight="@dimen/layoutMargin">
+            android:layout_marginRight="@dimen/layoutMargin"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/scoreFoxes"
                 android:layout_width="@dimen/zeroDp"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardColumn"
+                android:layout_weight="@integer/scoreBoardColumnWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/zero"
@@ -82,7 +82,7 @@
                 android:layout_width="@dimen/zeroDp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="score"
@@ -93,7 +93,7 @@
                 android:id="@+id/scoreWolves"
                 android:layout_width="@dimen/zeroDp"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardColumn"
+                android:layout_weight="@integer/scoreBoardColumnWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/zero"
@@ -112,14 +112,14 @@
             android:id="@+id/row_corsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="@dimen/layoutMargin">
+            android:layout_margin="@dimen/layoutMargin"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/corsiFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/zero"
@@ -130,7 +130,7 @@
                 android:id="@+id/fenwickFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/zero"
@@ -141,7 +141,7 @@
                 android:id="@+id/sevenFactorFoxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/na"
@@ -153,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="Corsi/Fenwick/7Factor"
@@ -165,7 +165,7 @@
                 android:id="@+id/corsiWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/zero"
@@ -176,7 +176,7 @@
                 android:id="@+id/fenwickWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/zero"
@@ -187,7 +187,7 @@
                 android:id="@+id/sevenFactorWolves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="@integer/scoreBoardLabel"
+                android:layout_weight="@integer/scoreBoardLabelWeight"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_horizontal"
                 android:text="@string/na"
@@ -221,10 +221,10 @@
                 <LinearLayout
                     android:layout_width="@dimen/zeroDp"
                     android:layout_height="match_parent"
-                    android:layout_weight="@integer/buttonColumn"
-                    android:orientation="vertical"
                     android:layout_marginBottom="@dimen/layoutMargin"
-                    android:layout_marginTop="@dimen/buttonMargin">
+                    android:layout_marginTop="@dimen/buttonMargin"
+                    android:layout_weight="@integer/buttonColumnWeight"
+                    android:orientation="vertical">
 
                     <Button
                         android:layout_width="match_parent"
@@ -335,10 +335,10 @@
                 <LinearLayout
                     android:layout_width="@dimen/zeroDp"
                     android:layout_height="match_parent"
-                    android:layout_weight="@integer/buttonColumn"
-                    android:orientation="vertical"
                     android:layout_marginBottom="@dimen/layoutMargin"
-                    android:layout_marginTop="@dimen/buttonMargin">
+                    android:layout_marginTop="@dimen/buttonMargin"
+                    android:layout_weight="@integer/buttonColumnWeight"
+                    android:orientation="vertical">
 
                     <Button
                         android:layout_width="match_parent"
