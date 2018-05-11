@@ -204,8 +204,8 @@ public class MainActivity extends AppCompatActivity {
      * Displays the total goals for each team.
      */
     public void displayScore() {
-        TextView scoreViewFoxes = (TextView) findViewById(R.id.scoreFoxes);
-        TextView scoreViewWolves = (TextView) findViewById(R.id.scoreWolves);
+        TextView scoreViewFoxes = findViewById(R.id.scoreFoxes);
+        TextView scoreViewWolves = findViewById(R.id.scoreWolves);
         scoreViewFoxes.setText(String.valueOf(foxes.score));
         scoreViewWolves.setText(String.valueOf(wolves.score));
     }
@@ -214,8 +214,8 @@ public class MainActivity extends AppCompatActivity {
      * Displays Corsi metrics for each team.
      */
     public void displayCorsi() {
-        TextView scoreViewFoxes = (TextView) findViewById(R.id.corsiFoxes);
-        TextView scoreViewWolves = (TextView) findViewById(R.id.corsiWolves);
+        TextView scoreViewFoxes = findViewById(R.id.corsiFoxes);
+        TextView scoreViewWolves = findViewById(R.id.corsiWolves);
         scoreViewFoxes.setText(String.valueOf(foxes.corsi));
         scoreViewWolves.setText(String.valueOf(wolves.corsi));
     }
@@ -224,8 +224,8 @@ public class MainActivity extends AppCompatActivity {
      * Displays Fenwick metrics for each team.
      */
     public void displayFenwick() {
-        TextView scoreViewFoxes = (TextView) findViewById(R.id.fenwickFoxes);
-        TextView scoreViewWolves = (TextView) findViewById(R.id.fenwickWolves);
+        TextView scoreViewFoxes = findViewById(R.id.fenwickFoxes);
+        TextView scoreViewWolves = findViewById(R.id.fenwickWolves);
         scoreViewFoxes.setText(String.valueOf(foxes.fenwick));
         scoreViewWolves.setText(String.valueOf(wolves.fenwick));
     }
@@ -234,8 +234,8 @@ public class MainActivity extends AppCompatActivity {
      * Displays 7-Factor metrics for each team.
      */
     public void displaySevenFactor() {
-        TextView scoreViewFoxes = (TextView) findViewById(R.id.sevenFactorFoxes);
-        TextView scoreViewWolves = (TextView) findViewById(R.id.sevenFactorWolves);
+        TextView scoreViewFoxes = findViewById(R.id.sevenFactorFoxes);
+        TextView scoreViewWolves = findViewById(R.id.sevenFactorWolves);
         if (foxes.metrics[4] == 0 && wolves.metrics[4] == 0
                 && foxes.metrics[5] == 0 && wolves.metrics[5] == 0
                 && foxes.metrics[6] == 0 && wolves.metrics[6] == 0

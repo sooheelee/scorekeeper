@@ -4,6 +4,9 @@
     <string name="teamB">Wolves</string>
     <string name="zero">0</string>
     <string name="na">na</string>
+    <string name="vs">vs</string>
+    <string name="score">score</string>
+    <string name="list_metrics_names">Corsi/Fenwick/7Factor</string>
     <string name="button1">5:5 Goal</string>
     <string name="button2">Other goal</string>
     <string name="button3">Shot blocked</string>

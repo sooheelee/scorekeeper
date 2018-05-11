@@ -4,4 +4,93 @@
         <item name="colorPrimary">#00bcd4</item>
         <item name="colorPrimaryDark">#008ba3</item>
     </style>
+
+    <style name="horizontal_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/layoutMargin</item>
+        <item name="android:layout_marginRight">@dimen/layoutMargin</item>
+    </style>
+
+    <style name="horizontal_with_top" parent="horizontal_layout">
+        <item name="android:layout_marginTop">@dimen/layoutMargin</item>
+    </style>
+
+    <style name="horizontal_with_bottom" parent="horizontal_layout">
+        <item name="android:layout_marginBottom">@dimen/layoutMargin</item>
+    </style>
+
+    <style name="score_board_team">
+        <item name="android:layout_width">@dimen/zeroDp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">@integer/scoreBoardColumnWeight</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="score_board_team_name" parent="score_board_team">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/quatchi_brown</item>
+        <item name="android:textSize">@dimen/largeText</item>
+    </style>
+
+    <style name="score_board_team_score" parent="score_board_team">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/quatchi_brown_dark</item>
+        <item name="android:textSize">@dimen/giganticText</item>
+    </style>
+
+    <style name="score_board_middle_label">
+        <item name="android:layout_width">@dimen/zeroDp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">@integer/scoreBoardLabelWeight</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/quatchi_brown_light</item>
+        <item name="android:textSize">@dimen/smallText</item>
+    </style>
+
+    <style name="horizontal_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/lineWidth</item>
+        <item name="android:layout_marginLeft">@dimen/layoutMargin</item>
+        <item name="android:layout_marginRight">@dimen/layoutMargin</item>
+        <item name="android:background">@color/button_default</item>
+    </style>
+
+    <style name="metric">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">@integer/scoreBoardLabelWeight</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/quatchi_brown_dark</item>
+        <item name="android:textSize">@dimen/mediumText</item>
+    </style>
+
+    <style name="vertical_layout">
+        <item name="android:layout_width">@dimen/zeroDp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">@dimen/layoutMargin</item>
+        <item name="android:layout_marginTop">@dimen/layoutMargin</item>
+        <item name="android:layout_weight">@integer/buttonColumnWeight</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="score_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/buttonMargin</item>
+        <item name="android:layout_marginLeft">@dimen/buttonMargin</item>
+        <item name="android:layout_marginRight">@dimen/buttonMargin</item>
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+    <style name="score_button_foxes" parent="score_button">
+        <item name="android:tag">foxes</item>
+    </style>
+
+    <style name="score_button_wolves" parent="score_button">
+        <item name="android:tag">wolves</item>
+    </style>
 </resources>
